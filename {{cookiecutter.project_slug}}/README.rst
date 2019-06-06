@@ -95,9 +95,9 @@ Create a new module with a meaningful name for your job::
     .{{ proj_slug }}/jobs/<my_new_job>/__init__.py
 
 Implement an *analyze* function within the module that accepts a SparkContext
-as it's only argument::
+and optional keyword arguments::
 
-    def analyze(sc):
+    def analyze(sc, **kwargs):
         # your pyspark code here.
 
 Add a module for your tests::

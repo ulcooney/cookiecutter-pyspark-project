@@ -23,7 +23,7 @@ def analyze(sc):
     :param SparkContext sc: A SparkContext_ instance.
 
     Each job module must define an *analyze* function that accepts a
-    SparkContext as it's only argument.
+    SparkContext and optional keyword arguments.
 
     To remove this example job from the project simply delete the following
     folders::
