@@ -66,6 +66,9 @@ home page and launch a new terminal::
 
     cd dist
     /usr/local/spark/bin/spark-submit --py-files jobs.zip,libs.zip main.py --job <job_name>
+    # eg to submit the word count demo job.
+    /usr/local/spark/bin/spark-submit --py-files jobs.zip,libs.zip main.py --job word_count_demo
+
 
 Where *<job_name>* is the name of the module in the *jobs* directory eg *word_count_demo*.
 

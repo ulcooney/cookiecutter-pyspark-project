@@ -45,7 +45,7 @@ lint:
 test:
 	. .venv/bin/activate && PYTHONPATH=. pytest --cov-config=.coveragerc --cov={{ proj_slug }}/jobs --cov={{ proj_slug }}/shared --cov-report=html --junitxml=result.xml -s tests
 
-build: clean
+build: clean deps
 	mkdir ./dist
 	cp ./{{ proj_slug }}/main.py ./dist
 	zip -r dist/jobs.zip {{ proj_slug }}/__init__.py {{ proj_slug }}/jobs {{ proj_slug }}/shared
