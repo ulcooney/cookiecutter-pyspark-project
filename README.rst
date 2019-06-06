@@ -1,6 +1,6 @@
-==========================
-Cookiecutter Pyspark Jobs
-=========================
+============================
+Cookiecutter Pyspark Project
+============================
 
 A Cookiecutter_ template for a basic project of Pyspark jobs.
 

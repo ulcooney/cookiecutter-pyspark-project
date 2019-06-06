@@ -2,6 +2,7 @@
 {{ cookiecutter.project_name }}
 ===============================
 {% set proj_slug = cookiecutter.project_slug %}
+
 Setting up a local development environment
 ==========================================
 
