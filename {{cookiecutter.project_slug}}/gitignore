@@ -1,0 +1,12 @@
+dist
+libs
+
+htmlcov
+result.xml
+docs/_build
+.coverage
+
+.ipython
+.jupyter
+.venv
+.pytest_cache
