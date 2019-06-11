@@ -38,6 +38,7 @@ def analyze(sc):
     .. _SparkContext: https://spark.apache.org/docs/2.1.0/api/python/pyspark.html#pyspark.SparkContext
     """
     context = WordCountDemoJobContext(sc)
+    context.logger(sc).info('Running word count demo')
 
     text = get_text()
 

@@ -1,4 +1,5 @@
 from collections import OrderedDict
+
 from tabulate import tabulate
 
 
@@ -33,3 +34,8 @@ class JobContext(object):
         msg = tabulate(
             self.counters.items(), self.counters.keys(), tablefmt="simple")
         print(msg)
+
+    def logger(self, sc):
+        component = "{}.{}".format(type(self).__module__, type(self).__name__)
+        log4jLogger = sc._jvm.org.apache.log4j
+        return log4jLogger.LogManager.getLogger(component)
