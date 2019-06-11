@@ -38,12 +38,18 @@ deps: .venv
 dev_deps: .venv
 	. .venv/bin/activate && pip install -U -r requirements.txt
 	. .venv/bin/activate && pip install -U -r dev_requirements.txt
+	. .venv/bin/activate && pip install -U -r test_requirements.txt
 
 lint:
 	. .venv/bin/activate && flake8 {{ proj_slug }}/jobs {{ proj_slug }}/shared tests
 
-test:
+test_no_spark:
 	. .venv/bin/activate && PYTHONPATH=. pytest --cov-config=.coveragerc --cov={{ proj_slug }}/jobs --cov={{ proj_slug }}/shared --cov-report=html --junitxml=result.xml -s tests
+
+test_with_spark:
+	pip install -r requirements.txt
+	pip install -r test_requirements.txt
+	. .venv/bin/activate && PYTHONPATH=. pytest --cov-config=.coveragerc --cov={{ proj_slug }}/jobs --cov={{ proj_slug }}/shared --cov-report=html --junitxml=result.xml --withspark -s tests
 
 build: clean deps
 	mkdir ./dist

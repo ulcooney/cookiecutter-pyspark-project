@@ -2,10 +2,6 @@ findspark
 flake8
 freezegun
 ipdb
-pre-commit
-psutil
 # pysparkling - Required for accumulator functionality. Upgrade to 0.5.1 when available.
--e git://github.com/svenkreiss/pysparkling@5ffcf9d0311d2fb27464ddcd4e58b0723059b14f#egg=pysparkling
-pytest==4.6.2
-pytest-cov==2.7.1
+# -e git://github.com/svenkreiss/pysparkling@5ffcf9d0311d2fb27464ddcd4e58b0723059b14f#egg=pysparkling
 Sphinx==2.1.0

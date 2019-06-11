@@ -11,12 +11,28 @@ following::
 
     make dev_deps
 
+To run code verification / analysis
+===================================
+
+To run flake8 code analysis on the project::
+
+    make lint
+
+Any project specification configuration can be added to *./.flake8*.
+
 Running test suite
 ==================
 
-To run the test suite::
+To run the subset of tests that do not require a Spark installation::
 
-    make test
+    make test_no_spark
+
+To run the full test suite including those tests that require a Spark installation::
+
+    make test_with_spark
+
+This can be executed in a new terminal tab on the docker stack
+(see `Start Spark / Jupyter Notebook stack`_)
 
 Build documentation
 ===================
@@ -62,7 +78,7 @@ To stop the stack::
 
 To submit a job to the Spark container you should first build the project (
 see `Build deployable artifacts`_). Then open the jupyter notebook
-home page and launch a new terminal::
+home page and launch a new terminal tab::
 
     cd dist
     /usr/local/spark/bin/spark-submit --py-files jobs.zip,libs.zip main.py --job <job_name>
@@ -95,14 +111,24 @@ Create a new module with a meaningful name for your job::
     .{{ proj_slug }}/jobs/<my_new_job>/__init__.py
 
 Implement an *analyze* function within the module that accepts a SparkContext
-and optional keyword arguments::
+and optional keyword arguments passed from the command line::
 
     def analyze(sc, **kwargs):
         # your pyspark code here.
 
+The keyword arguments can be passed via the *job-args* command line flag eg::
+
+        spark-submit --job word_count_demo --job-args foo=bar x=y")
+
 Add a module for your tests::
 
     ./tests/jobs/test_<my_new_job>.py
+
+Tests with a dependency on a Spark installation should be marked accordingly::
+
+    @pytest.mark.spark
+    def test_wordcount(spark_context):
+        # your test code here.
 
 Add declarations to the sphinx api reference template to extract documentation::
 

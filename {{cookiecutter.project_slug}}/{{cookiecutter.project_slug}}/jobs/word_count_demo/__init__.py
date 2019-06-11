@@ -29,13 +29,12 @@ def analyze(sc):
     folders::
 
         ./pyspark_test_three/jobs/word_count_demo
-        
         ./tests/jobs/word_count_demo
 
     And remove the references to *word_count_demo* in the sphinx documentation::
 
         ./docs/api_reference.rst
-    
+
     .. _SparkContext: https://spark.apache.org/docs/2.1.0/api/python/pyspark.html#pyspark.SparkContext
     """
     context = WordCountDemoJobContext(sc)

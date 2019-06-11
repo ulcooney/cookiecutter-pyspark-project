@@ -14,6 +14,7 @@ The resulting project is influenced by the following sources:
 - https://medium.com/@GaryStafford/getting-started-with-pyspark-for-big-data-analytics-using-jupyter-notebooks-and-docker-ba39d2e3d6c7
 - https://developerzen.com/best-practices-writing-production-grade-pyspark-jobs-cb688ac4d20f
 - https://github.com/ekampf/PySpark-Boilerplate
+- https://engblog.nextdoor.com/unit-testing-apache-spark-with-py-test-3b8970dc013b
 
 
 The README within your newly created project contains a guide for development.
